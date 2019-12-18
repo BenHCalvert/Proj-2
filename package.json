@@ -1,23 +1,30 @@
 {
-  "name": "proj-2",
+  "name": "node-handlebars-boilerplate",
   "version": "1.0.0",
-  "description": "Coding Bootcamp Project 2",
-  "main": "index.js",
-  "dependencies": {
-    "eslint": "^6.7.2"
-  },
-  "devDependencies": {},
+  "description": "Project 2 Starter",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "lint": "eslint --quiet .",
+    "fix": "eslint --fix .",
+    "test": "npm run lint && cross-env NODE_ENV=test mocha -u bdd --reporter spec --exit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BenHCalvert/Proj-2.git"
-  },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BenHCalvert/Proj-2/issues"
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.6"
   },
-  "homepage": "https://github.com/BenHCalvert/Proj-2#readme"
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.17.1"
+  }
 }
