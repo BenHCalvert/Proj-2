@@ -49,3 +49,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Intellij
+.idea
+.Proj-2.iml
