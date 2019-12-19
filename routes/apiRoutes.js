@@ -63,14 +63,14 @@ module.exports = function(app) {
     
     //Get All Students
     app.get("/api/student", function(req, res) {
-      db.Example.findAll({where: { id: req.params.student }}).then(function(athdb) {
+      db.Example.findAll({}).then(function(athdb) {
         res.json(athdb);
         if (test) {
           console.log('get all students')};
       });
     });
 
-    //get one team
+    //get one student
     app.get("/api/student/:id", function(req, res) {
       db.Example.findOne({where: { id: req.params.id }}).then(function(athdb) {
         res.json(athdb);
@@ -97,6 +97,46 @@ module.exports = function(app) {
 
     // update one student
     app.update("/api/student/:id", function(req, res) {
+      db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
+        res.json(dbExample);
+      });
+    });
+
+    
+// ********************
+// Adult 'API'
+// ********************
+    
+    //Get All adults
+    app.get("/api/adult", function(req, res) {
+      db.Example.findAll({}).then(function(athdb) {
+        res.json(athdb);
+      });
+    });
+
+    //get one adult
+    app.get("/api/adult/:id", function(req, res) {
+      db.Example.findOne({where: { id: req.params.id }}).then(function(athdb) {
+        res.json(athdb);        
+      });
+    });
+
+    //post one adult
+    app.post("/api/adult", function(req, res) {
+      db.Example.create({}).then(function(athdb) {
+        res.json(athdb);
+      });
+    });
+
+    // Delete an adult by adult id. May need to change id header to match 
+    app.delete("/api/adult/:id", function(req, res) {
+      db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+        res.json(dbExample);
+      });
+    });
+
+    // update one adult
+    app.update("/api/adult/:id", function(req, res) {
       db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
