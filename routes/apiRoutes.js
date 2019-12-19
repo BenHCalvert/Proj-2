@@ -16,12 +16,19 @@ module.exports = function(app) {
 // Team 'API'
 // ********************
 
-    //get one team
-    app.get("/api/:team", function(req, res) {
-      db.Example.findOne({where: { id: req.params.team }}).then(function(athdb) {
+    //get all teams
+    app.get("/api/team", function(req, res) {
+      db.Example.findAll({where: { id: req.params.team }}).then(function(athdb) {
         res.json(athdb);
         if (test) {
-          console.log('get all teams')};
+          console.log('get all teams with')};
+      });
+    });
+
+    // get one team
+    app.get("/api/team/:id", function(req, res) {
+      db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+        res.json(dbExample);
       });
     });
 
@@ -41,19 +48,65 @@ module.exports = function(app) {
       });
     });
 
-    // update one team
+    // update one team by team id
     app.update("/api/team/:id", function(req, res) {
       db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
     });
 
-    // het one team
-    app.get("/api/team/:id", function(req, res) {
-      db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    
+
+// ********************
+// Student 'API'
+// ********************
+    
+    //Get All Students
+    app.get("/api/student", function(req, res) {
+      db.Example.findAll({where: { id: req.params.student }}).then(function(athdb) {
+        res.json(athdb);
+        if (test) {
+          console.log('get all students')};
+      });
+    });
+
+    //get one team
+    app.get("/api/student/:id", function(req, res) {
+      db.Example.findOne({where: { id: req.params.id }}).then(function(athdb) {
+        res.json(athdb);
+        if (test) {
+          console.log('get one student')};
+      });
+    });
+
+    //post one student
+    app.post("/api/student", function(req, res) {
+      db.Example.create({}).then(function(athdb) {
+        res.json(athdb);
+        if (test) {
+          console.log('post new team')};
+      });
+    });
+
+    // Delete a student by student id. May need to change id header to match 
+    app.delete("/api/student/:id", function(req, res) {
+      db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
     });
+
+    // update one student
+    app.update("/api/student/:id", function(req, res) {
+      db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
+        res.json(dbExample);
+      });
+    });
+
+    
+
+
+
+
 
   app.update("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
