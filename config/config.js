@@ -22,6 +22,7 @@ module.exports = {
     "dialect": "mysql"
   }
 }
+
 /*
 module.exports = {
     dev: {
