@@ -2972,7 +2972,7 @@ table, th, td {
 }
 
 table {
-  width: 25%;
+  width: 100%;
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
