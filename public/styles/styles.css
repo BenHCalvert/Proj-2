@@ -1,3 +1,47 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+
+h1, h3 {
+  font-family:sans-serif;
+  font-weight: bolder;
+  
+}
+
+.brand-logo {
+  font-family:sans-serif;
+}
+
+.nav-mobile {
+  font-family:sans-serif;
+}
+
+.nav-full {
+  font-family:sans-serif;
+}
+
+td {
+  font-size: larger;
+}
+
+body {
+  background: url("http://www.webdesigndev.com/wp-content/uploads/2015/02/Subtle-Light-Tile-Pattern-Vol5.jpg");
+}
+
+tbody {
+  display:block;
+  height:250px;
+  overflow:auto;
+  }
+  thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  }
+  thead {
+  width: calc( 100% - 1em )
+  }
+  table {
+  width:25%;
+  }
