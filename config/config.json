@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "poop",
+    "password": "root",
     "database": "sunnyside_db",
     "host": "localhost",
     "port": 3306,
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "test_sunnyside_db",
     "host": "localhost",
     "dialect": "mysql",
