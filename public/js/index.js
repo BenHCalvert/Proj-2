@@ -1,99 +1,76 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+$(document).ready(function() {
+  var $studentButton = $("#std-btn");
+  var $adultButton = $("#adt-btn");
+  var $inventoryButton = $("#inv-btn");
+  var $betButton = $("#bet-btn");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var API = {
+    getStudents: function () {
+      return $.ajax({
+        url: "api/student",
+        type: "GET"
+      });
+    }
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
+  function pageRedirect (){
+    // console.log("Page redirect")
+    window.location.href = "student.html";
+
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  $studentButton.on("click", function () {
+    pageRedirect()
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
+  $adultButton.on("click", function () {
+    console.log('adult button');
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
   });
-};
 
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+  $inventoryButton.on("click", function () {
+    console.log('inventory button');
+  });
+
+  $betButton.on("click", function () {
+    console.log('bet button');
+  });
+
+  renderStudents = function () {
+    API.getStudents().then(function (data) {
+      // console.log(data);
+      // console.log("render student");
+      const studentArray = [];
+
+      for (let i = 0; i < data.length; i++) {
+        const firstName = data[i].first_name;
+        const lastName = data[i].last_name;
+        const fullName = firstName + ' ' + lastName;
+        const grade = data[i].grade;
+        const gender = data[i].gender;
+        // const student = fullName + ' ' + grade + ' ' + gender;
+
+        studentArray.push(fullName);
+        // studentArray.push(fullName, grade, gender);
+        console.log(studentArray);
+        // $.each(studentArray, () => {
+        // })
+        const studentList = $('#studentList');
+        const tr = $('<tr>');
+        const td = $('<td>');
+        tr.append(td);
+        studentList.append(tr);
+        td.append(studentArray[i]);
+        // td.append(student);
+      }
+    });
+  };
+
+  // we only want to render students on the student page.
+  let location = window.document.location.href
+  if(location === "http://localhost:3000/student.html"){
+    $(window).load(function(){
+      renderStudents();
+    });
+    }
+});
