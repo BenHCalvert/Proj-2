@@ -25,6 +25,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
+// will need to change to false so table is not recreated
 let syncOptions = { force: true };
 
 // If running a test, set syncOptions.force to true
