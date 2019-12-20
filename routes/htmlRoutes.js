@@ -13,6 +13,21 @@ module.exports = function(app) {
     // });
   });
 
+  // Load inventory page
+  app.get("/inventory", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/inventory.html"));  
+  });
+
+  // Load student page
+  app.get("/student", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/student.html"));  
+  });
+
+   // Load adult page
+   app.get("/adult", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/adult.html"));  
+  });
+
 
  
   // Load example page and pass in an example by id
