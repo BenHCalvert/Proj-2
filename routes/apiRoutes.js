@@ -49,8 +49,8 @@ module.exports = function(app) {
     });
 
     //update one team by team id
-    app.update("/api/team/:id", function(req, res) {
-      db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
+    app.put("/api/team/:id", function(req, res) {
+      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
     });
@@ -96,8 +96,8 @@ module.exports = function(app) {
     });
 
     //update one student
-    app.update("/api/student/:id", function(req, res) {
-      db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
+    app.put("/api/student/:id", function(req, res) {
+      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
     });
@@ -136,8 +136,8 @@ module.exports = function(app) {
     });
 
     //update one adult
-    app.update("/api/adult/:id", function(req, res) {
-      db.Example.update({ where: { id: req.params.id } }).then(function(dbExample) {
+    app.put("/api/adult/:id", function(req, res) {
+      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
         res.json(dbExample);
       });
     });
