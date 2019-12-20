@@ -13,9 +13,7 @@ module.exports = function(sequelize, DataTypes) {
   Adult.associate = function (models) {
     models.Adult.belongsToMany(models.Student, {
       through: 'Family',
-      foreignKey: 'studentId',
-      otherKey: 'adultId'
-
+      foreignKey: 'adultId',
     });
   }
   return Adult;
