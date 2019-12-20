@@ -13,19 +13,18 @@ $(document).ready(function() {
     }
   };
 
-  function pageRedirect (){
-    // console.log("Page redirect")
-    window.location.href = "student.html";
-
+  function pageRedirect (page){
+    window.location.href = page;
   }
 
   $studentButton.on("click", function () {
-    pageRedirect()
+    const studentPage = "student.html"
+    pageRedirect(studentPage)
   });
 
   $adultButton.on("click", function () {
-    console.log('adult button');
-
+    const adultPage = "adult.html"
+    pageRedirect(adultPage)
   });
 
   $inventoryButton.on("click", function () {
