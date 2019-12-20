@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-let db = require("../models");
-=======
 var db = require("../models");
 var path = require("path");
->>>>>>> c3ccf3704fab94f3e3f7b00681f2e18d3e8171d8
 
 module.exports = function(app) {
   // Load index page
