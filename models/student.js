@@ -32,7 +32,6 @@ module.exports = function(sequelize, DataTypes) {
       through: 'Roster',
       foreignKey: 'studentId',
     });
-
   }
   return Student;
 };

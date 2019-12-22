@@ -1,4 +1,5 @@
 const db = require("../models");
+const sequelize = require("sequelize");
 
 const test = true;
 
@@ -15,10 +16,9 @@ module.exports = function(app) {
 // ********************
 // Team 'API'
 // ********************
-
     //get all teams
     app.get("/api/team", function(req, res) {
-      db.Team.findAll({where: { id: req.params.team }}).then(function(results) {
+      db.Team.findAll({}).then(function(results) {
         res.json(results);
         if (test) {
           console.log('get all teams with')};
@@ -55,7 +55,38 @@ module.exports = function(app) {
       });
     });
 
-    
+// ********************
+// Roster 'API'
+// ********************
+    //get all roster
+    app.get("/api/roster", function(req, res) {
+      db.Roster.findAll({}).then(function(results) {
+        res.json(results);
+        if (test) {
+          console.log('get all teams with')};
+      });
+    });
+
+    //get one roster
+    app.get("/api/roster/:id", function(req, res) {
+      db.Roster.findOne({ where: { id: req.params.id } }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+    //get one roster by teamId
+    app.get("/api/roster/team/:id", function(req, res) {
+      db.Roster.findAll({ where: { teamId: req.params.id } }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+    //delete a team by team id. May need to change id header to match 
+    app.delete("/api/roster/:id", function(req, res) {
+      db.Roster.destroy({ where: { id: req.params.id } }).then(function(results) {
+        res.json(results);
+      });
+    });
 
 // ********************
 // Student 'API'
@@ -80,7 +111,10 @@ module.exports = function(app) {
     app.get("/api/student/:id", function(req, res) {
       db.Student.findOne({
         where: { id: req.params.id },
-        include: [{model: db.Adult}]
+        include: [
+          {model: db.Adult},
+          {model: db.Team},
+        ]
       }).then(function(results) {
         res.json(results);
         if (test) {
@@ -90,9 +124,7 @@ module.exports = function(app) {
 
     //post one student
     app.post("/api/student", function(req, res) {
-      db.Student.create({
-
-      }).then(function(results) {
+      db.Student.create({}).then(function(results) {
         res.json(results);
         if (test) {
           console.log('post new team')};
@@ -102,8 +134,7 @@ module.exports = function(app) {
     //delete a student by student id. May need to change id header to match 
     app.delete("/api/student/:id", function(req, res) {
       db.Student.destroy({ 
-        where: { id: req.params.id },
-        include: [{model: db.Adult}]
+        where: { id: req.params.id }
       }).then(function(results) {
         res.json(results);
       });
@@ -145,8 +176,6 @@ module.exports = function(app) {
     //post one adult
     app.post("/api/adult", function(req, res) {
       db.Adult.create({
-
-
       }).then(function(results) {
         res.json(results);
       });
@@ -163,7 +192,6 @@ module.exports = function(app) {
     app.put("/api/adult/:id", function(req, res) {
       db.Adult.put({ 
         where: { id: req.params.id }, 
-        include: [{model: db.Student}]
       }).then(function(results) {
         res.json(results);
       });
@@ -174,14 +202,11 @@ module.exports = function(app) {
 // ********************
     
     //get families
-    //select f.id, f.adult_type, a.first_name, s.first_name from families f join adults a on f.adultId = a.id join students s on f.studentId = s.id order by f.id;
     app.get("/api/family", function(req, res) {
-      db.Family.findAll({
-        include: [
-          {model: db.Student},
-          {model: db.Adult},
-        ]
-      }).then(function(results) {
+    //select f.id, f.adult_type, a.first_name, s.first_name from families f join adults a on f.adultId = a.id join students s on f.studentId = s.id order by f.id;
+      // sequelize.query("SELECT f.id, f.adult_type, a.first_name, s.first_name FROM families f JOIN adults a ON f.adultId = a.id JOIN students s ON f.studentId = s.id;", { type: sequelize.QueryTypes.SELECT})
+      db.Family.findAll({})
+        .then(function(results) {
         res.json(results);
       });
     });
@@ -213,6 +238,4 @@ module.exports = function(app) {
         res.json(results);
       });
     });
-
-
 };

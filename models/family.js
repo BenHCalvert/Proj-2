@@ -24,5 +24,7 @@ module.exports = function(sequelize, DataTypes) {
       otherKey: 'studentId',
     });
   }
+
+
   return Family;
 };
