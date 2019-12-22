@@ -27,6 +27,12 @@ module.exports = function(sequelize, DataTypes) {
       through: 'Family',
       foreignKey: 'studentId',
     });
+
+    models.Student.belongsToMany(models.Team, {
+      through: 'Roster',
+      foreignKey: 'studentId',
+    });
+
   }
   return Student;
 };

@@ -64,7 +64,10 @@ module.exports = function(app) {
     //get All Students
     app.get("/api/student", function(req, res) {
       db.Student.findAll({
-        include: [{model: db.Adult}]
+        include: [
+          {model: db.Adult},
+          {model: db.Team},
+        ]
       }).then(function(results) {
         res.json(results);
         console.log('get all students',results);
@@ -143,6 +146,7 @@ module.exports = function(app) {
     app.post("/api/adult", function(req, res) {
       db.Adult.create({
 
+
       }).then(function(results) {
         res.json(results);
       });
@@ -170,6 +174,7 @@ module.exports = function(app) {
 // ********************
     
     //get families
+    //select f.id, f.adult_type, a.first_name, s.first_name from families f join adults a on f.adultId = a.id join students s on f.studentId = s.id order by f.id;
     app.get("/api/family", function(req, res) {
       db.Family.findAll({
         include: [
