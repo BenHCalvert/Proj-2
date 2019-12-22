@@ -63,7 +63,9 @@ module.exports = function(app) {
     
     //get All Students
     app.get("/api/student", function(req, res) {
-      db.Student.findAll({}).then(function(results) {
+      db.Student.findAll({
+        include: [{model: db.Adult}]
+      }).then(function(results) {
         res.json(results);
         console.log('get all students',results);
         if (test) {
@@ -73,7 +75,10 @@ module.exports = function(app) {
 
     //get one student
     app.get("/api/student/:id", function(req, res) {
-      db.Student.findOne({where: { id: req.params.id }}).then(function(results) {
+      db.Student.findOne({
+        where: { id: req.params.id },
+        include: [{model: db.Adult}]
+      }).then(function(results) {
         res.json(results);
         if (test) {
           console.log('get one student')};
@@ -82,7 +87,9 @@ module.exports = function(app) {
 
     //post one student
     app.post("/api/student", function(req, res) {
-      db.Student.create({}).then(function(results) {
+      db.Student.create({
+
+      }).then(function(results) {
         res.json(results);
         if (test) {
           console.log('post new team')};
@@ -91,14 +98,19 @@ module.exports = function(app) {
 
     //delete a student by student id. May need to change id header to match 
     app.delete("/api/student/:id", function(req, res) {
-      db.Student.destroy({ where: { id: req.params.id } }).then(function(results) {
+      db.Student.destroy({ 
+        where: { id: req.params.id },
+        include: [{model: db.Adult}]
+      }).then(function(results) {
         res.json(results);
       });
     });
 
     //update one student
     app.put("/api/student/:id", function(req, res) {
-      db.Student.put({ where: { id: req.params.id } }).then(function(results) {
+      db.Student.put({ 
+        where: { id: req.params.id } 
+      }).then(function(results) {
         res.json(results);
       });
     });
@@ -110,7 +122,61 @@ module.exports = function(app) {
     
     //get All adults
     app.get("/api/adult", function(req, res) {
-      db.Adult.findAll({}).then(function(results) {
+      db.Adult.findAll({
+        include: [{model: db.Student}]
+      }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+    //get one adult
+    app.get("/api/adult/:id", function(req, res) {
+      db.Adult.findOne({
+        where: { id: req.params.id },
+        include: [{model: db.Student}]
+      }).then(function(results) {
+        res.json(results);        
+      });
+    });
+
+    //post one adult
+    app.post("/api/adult", function(req, res) {
+      db.Adult.create({
+
+      }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+    //delete an adult by adult id. May need to change id header to match 
+    app.delete("/api/adult/:id", function(req, res) {
+      db.Adult.destroy({ where: { id: req.params.id } }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+    //update one adult
+    app.put("/api/adult/:id", function(req, res) {
+      db.Adult.put({ 
+        where: { id: req.params.id }, 
+        include: [{model: db.Student}]
+      }).then(function(results) {
+        res.json(results);
+      });
+    });
+
+// ********************
+// Family 'API'
+// ********************
+    
+    //get families
+    app.get("/api/family", function(req, res) {
+      db.Family.findAll({
+        include: [
+          {model: db.Student},
+          {model: db.Adult},
+        ]
+      }).then(function(results) {
         res.json(results);
       });
     });
@@ -142,4 +208,6 @@ module.exports = function(app) {
         res.json(results);
       });
     });
+
+
 };
