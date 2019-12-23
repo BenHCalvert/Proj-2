@@ -48,6 +48,8 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+
 // cant this to work. ls works on the path but when i try to run it it cant find the path
 /*jjjjjjjjjjjjjjjj
 .then(function() {
