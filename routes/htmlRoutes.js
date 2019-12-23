@@ -5,11 +5,9 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/homepage.html"));
-    db.Team.findAll({}).then(function(teams) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: teams
-      });
+    db.Team.findAll({}).then(function(data) {
+      console.log("hsbdata",{team: data});
+      res.render("index", {team: data});
     });
   });
 
