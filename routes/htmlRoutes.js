@@ -28,6 +28,11 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/adult.html"));  
   });
 
+  // Load roster page
+  app.get("/roster", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/roster.html"));  
+  });
+
 
  
   // Load example page and pass in an example by id
