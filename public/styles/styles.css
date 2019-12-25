@@ -31,7 +31,8 @@ body {
 
 tbody {
   display:block;
-  height:250px;
+  /* commented out for now to make the tables easier to read, not sure what this was added - gdp */
+  /* height:250px; */
   overflow:auto;
   }
   thead, tbody tr {
