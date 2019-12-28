@@ -17,65 +17,87 @@
       <div class="row">
           <div class="col s12 m3">
             <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
+          </div>
+          <div class="col s12 m3">
+            <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
+          </div>
+          <div class="col s12 m3">
+            <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
         </div>
-      
-
-      
-        <div class="col s12 m3">
-          <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
-      </div>
-    
-
-    
-        <div class="col s12 m3">
-          <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
-      </div>
-    
-
-    
         <div class="col s12 m3">
           <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
+        </div>
       </div>
-    </div>
-      <br><br>
-
+    <br><br>
     </div>
   </div>
-
 
   <div class="container">
-    <div class="section">
-        
-      <body>
-        <div class="col s3 m3 l3">
-          <table class="z-depth-5">
-            <thead>
-              <tr>
-                <th>Student List</th>
-              </tr>
-            </thead>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <table class="z-depth-5 highlight">
+          <thead>
             <tr>
-              <td>First Name</td>
-              <td>Last Name</td>
-              <td>Gender</td>
-              <td>Grade</td>
-              <td>Allergies</td>
+              <th colspan=2>Student List</th>
             </tr>
-            <tbody>
-              {{#each student}}
-                {{>student/student-block}}
-              {{/each}}
-            </tbody>
-          </table>
-        </div>
-
-        
-      
-      
-      
-      </body> 
-     
-  </div>
+            <tr>
+              <th>Name</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each student}}
+              {{>student/student-block}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="col s6 m6 l6">
+        <form class="col s12 z-depth-5">
+              <div class="formHeader">Student Details</div>
+              {{!-- play with HR for line --}}
+              <hr>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="First Name" id="first_name" type="text" class="validate">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="last Name" id="last_name" type="text" class="validate">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose Students Gender</option>
+                    <option value="boy">Boy</option>
+                    <option value="girl">Girl</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label>Select Gender</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose Student Grade</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                  </select>
+                  <label>Select Grade</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea_allergies" class="materialize-textarea"></textarea>
+                  <label for="textarea_allergies">Allergies</label>
+                </div>
+              </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="container">
@@ -222,9 +244,12 @@
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  {{!-- what are these _idx files for? I dont see them can we delete these? --}}
   <script src="./js/student_idx.js"></script>
   <script src="./js/adult_idx.js"></script>
+
   <script src="./js/materialize.js"></script>
+  <script src="./js/student.js"></script>
   <script src="./js/init.js"></script>
 
   </body>

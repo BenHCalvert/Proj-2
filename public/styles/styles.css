@@ -2,11 +2,15 @@
   line-height: 2.5;
 }
 
-
 h1, h3 {
   font-family:sans-serif;
   font-weight: bolder;
   
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
 .brand-logo {
@@ -38,11 +42,21 @@ tbody {
   thead, tbody tr {
   display:table;
   width:100%;
+  /* width:50%; */
   table-layout:fixed;
   }
   thead {
   width: calc( 100% - 1em )
+  /* width: calc( 50% - 1em ) */
   }
   table {
   width:25%;
+  }
+
+  .formHeader {
+    padding: 15px 5px;
+    text-align: left;
+    font-weight: bold;
+    vertical-align: middle;
+    border-radius: 2px;
   }
