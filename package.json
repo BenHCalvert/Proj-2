@@ -11,7 +11,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@material/list": "^4.0.0",
     "dotenv": "^8.2.0",
     "env": "0.0.2",
     "express": "^4.17.0",

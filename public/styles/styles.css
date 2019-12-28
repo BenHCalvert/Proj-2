@@ -8,11 +8,6 @@ h1, h3 {
   
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-}
-
 .brand-logo {
   font-family:sans-serif;
 }
@@ -56,7 +51,7 @@ tbody {
   .formHeader {
     padding: 15px 5px;
     text-align: left;
-    font-weight: bold;
+    font-weight: left;
     vertical-align: middle;
     border-radius: 2px;
   }
