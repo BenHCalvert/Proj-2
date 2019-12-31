@@ -18,11 +18,11 @@ module.exports = function(app) {
 
   // Load student page
   app.get("/student", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/student.html"));  
-    // db.Team.findAll({}).then(function(data) {
-      // console.log("hsbdata",{student: data});
-      // res.render("student", {student: data});
-    // });
+    // res.sendFile(path.join(__dirname, "../public/student.html"));  
+    db.Student.findAll({}).then(function(data) {
+      console.log("hsbdata",{student: data});
+      res.render("student", {student: data});
+    });
   });
 
    // Load adult page
