@@ -19,7 +19,7 @@ INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,upda
 
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',1,1,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',1,2,'2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Guardian',1,3,'2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',1,3,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',2,1,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',2,2,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Guardian',2,3,'2020-12-18 01:00:00','2020-12-18 01:00:00');

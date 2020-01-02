@@ -2,7 +2,6 @@
   line-height: 2.5;
 }
 
-
 h1, h3 {
   font-family:sans-serif;
   font-weight: bolder;
@@ -31,17 +30,28 @@ body {
 
 tbody {
   display:block;
-  height:250px;
+  /* commented out for now to make the tables easier to read, not sure what this was added - gdp */
+  /* height:250px; */
   overflow:auto;
   }
   thead, tbody tr {
   display:table;
   width:100%;
+  /* width:50%; */
   table-layout:fixed;
   }
   thead {
   width: calc( 100% - 1em )
+  /* width: calc( 50% - 1em ) */
   }
   table {
   width:25%;
+  }
+
+  .formHeader {
+    padding: 15px 5px;
+    text-align: left;
+    font-weight: left;
+    vertical-align: middle;
+    border-radius: 2px;
   }

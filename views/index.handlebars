@@ -19,19 +19,19 @@
       </div>
       <div class="row">
           <div class="col s12 m3">
-        <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
+        <a href="student" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
         </div>
       
 
       
         <div class="col s12 m3">
-      <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
+      <a href="adult" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
       </div>
     
 
     
         <div class="col s12 m3">
-      <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+      <a href="inventory" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
       </div>
     
 
@@ -59,7 +59,11 @@
                 </div>
               </tr>
             </thead>
-            <tr><td><h4>Name</h4></td><td><h4>Sport</h4></td><td><h4>Gender</h4></td></tr>
+            <tr>
+              <td>Name</td>
+              <td>Sport</td>
+              <td>Gender</td>
+            </tr>
             <tbody>
                 {{#each team}}
                   {{>teams/team-block}}

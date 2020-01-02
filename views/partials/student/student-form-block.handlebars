@@ -1,0 +1,43 @@
+        <form class="col s12 z-depth-5">
+              <div class="formHeader">Student Details</div>
+              {{!-- play with HR for line --}}
+              <hr>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="First Name" id="first_name" type="text" class="validate">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="last Name" id="last_name" type="text" class="validate">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="gender">
+                    <option value="" disabled selected>Choose Students Gender</option>
+                    <option value="boy">Boy</option>
+                    <option value="girl">Girl</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <label>Select Gender</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="grade">
+                    <option value="" disabled selected>Choose Student Grade</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                  </select>
+                  <label>Select Grade</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea_allergies" class="materialize-textarea"></textarea>
+                  <label for="textarea_allergies">Allergies</label>
+                </div>
+              </div>
+        </form>
