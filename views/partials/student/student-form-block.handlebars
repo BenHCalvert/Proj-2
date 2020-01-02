@@ -1,14 +1,15 @@
-        <form class="col s12 z-depth-5">
+        <form class="col s12 z-depth-5 student-form">
               <div class="formHeader">Student Details</div>
               {{!-- play with HR for line --}}
               <hr>
               <div class="row">
                 <div class="input-field col s6">
+                  <input type="hidden" id="studId" name="studId">
                   <input placeholder="First Name" id="first_name" type="text" class="validate">
                   <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                  <input placeholder="last Name" id="last_name" type="text" class="validate">
+                  <input placeholder="last Name" id="last_name" type="text" class="validate" >
                   <label for="last_name">Last Name</label>
                 </div>
               </div>
@@ -39,5 +40,15 @@
                   <textarea id="textarea_allergies" class="materialize-textarea"></textarea>
                   <label for="textarea_allergies">Allergies</label>
                 </div>
+              </div>
+              <div class="row">
+                <a href="student" id="reset-button" class="btn-small waves-effect waves-light yellow black-text">Reset</a>
+
+                <button class="btn-small waves-effect waves-light yellow black-text student-btn" type="submit" value='delete'>
+                  Delete
+                </button>
+                <button class="btn-small waves-effect waves-light yellow black-text student-btn" type="submit" value='update'>
+                  Update
+                </button>
               </div>
         </form>
