@@ -79,9 +79,40 @@
   <div class="col s12 m3">
     <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Team</a>
     </div>
-  </div>
-</div>
 
+	  <a class="modal-trigger btn-large waves-effect waves-light yellow black-text" href="#modal1">Send A Message</a>
+	  </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+	  <div class="modal-content">
+		  <h4>Send A Message</h4>
+		  <div class="input-field col s12">
+		  <select>
+			  <option value="" disabled selected>Select Student</option>
+			  {{#each student}}
+			  {{/each}}
+			  <option value="1">Option 1</option>
+			  <option value="2">Option 2</option>
+			  <option value="3">Option 3</option>
+		  </select>
+			  <div class="row">
+				  <form class="col s12">
+					  <div class="row">
+						  <div class="input-field col s12">
+							  <textarea id="textarea1" class="materialize-textarea"></textarea>
+							  <label for="textarea1">Type Message</label>
+						  </div>
+					  </div>
+				  </form>
+			  </div>
+		  </div>
+
+	  </div>
+	  <div class="modal-footer">
+		  <a href="#!" id="sms" class="modal-close waves-effect waves-green btn-flat ">Send Message</a>
+	  </div>
+  </div>
+  </div>
 <br><br>
 
 
@@ -119,3 +150,4 @@
   <script src="./js/adult_idx.js"></script>
   <script src="./js/materialize.js"></script>
   <script src="./js/init.js"></script>
+  <script src="./js/sms.js"></script>
