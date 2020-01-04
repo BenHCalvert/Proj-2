@@ -1,4 +1,3 @@
-
 function ExportDb(sequelize, DataTypes) {
   const Student = sequelize.define('Student', {
     first_name: {

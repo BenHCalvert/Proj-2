@@ -129,7 +129,13 @@ function exportAll(app) {
 
   // post one student
   app.post('/api/student', (req, res) => {
-    db.Student.create({}).then((results) => {
+    db.Student.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies
+    }).then((results) => {
       res.json(results);
       if (test) {
         console.log('post new team');
@@ -139,6 +145,7 @@ function exportAll(app) {
 
   // delete a student by student id. May need to change id header to match
   app.delete('/api/student/:id', (req, res) => {
+    console.log("in route delte", req);
     db.Student.destroy({
       where: { id: req.params.id },
     }).then((results) => {
@@ -148,7 +155,14 @@ function exportAll(app) {
 
   // update one student
   app.put('/api/student/:id', (req, res) => {
-    db.Student.put({
+    console.log("in stud put",req);
+    db.Student.update({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies,
+    }, {
       where: { id: req.params.id },
     }).then((results) => {
       res.json(results);
