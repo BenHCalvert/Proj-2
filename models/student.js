@@ -1,4 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
+
+function ExportDb(sequelize, DataTypes) {
   const Student = sequelize.define('Student', {
     first_name: {
       type: DataTypes.STRING,
@@ -35,3 +36,5 @@ module.exports = function (sequelize, DataTypes) {
   };
   return Student;
 };
+
+module.exports = ExportDb;

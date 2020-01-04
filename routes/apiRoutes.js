@@ -1,16 +1,14 @@
-const sequelize = require('sequelize');
+// const sequelize = require('sequelize');
 const db = require('../models');
 
 const test = true;
 
-module.exports = function (app) {
+function exportAll(app) {
   // Get all
   app.get('/api', (req, res) => {
     db.Example.findAll({}).then((results) => {
       res.json(results);
-      if (test) {
-        console.log('get all');
-      }
+      if (test) { console.log('get all'); }
     });
   });
 
@@ -211,8 +209,6 @@ module.exports = function (app) {
 
   // get families
   app.get('/api/family', (req, res) => {
-    // select f.id, f.adult_type, a.first_name, s.first_name from families f join adults a on f.adultId = a.id join students s on f.studentId = s.id order by f.id;
-    // sequelize.query("SELECT f.id, f.adult_type, a.first_name, s.first_name FROM families f JOIN adults a ON f.adultId = a.id JOIN students s ON f.studentId = s.id;", { type: sequelize.QueryTypes.SELECT})
     db.Family.findAll({})
       .then((results) => {
         res.json(results);
@@ -246,4 +242,6 @@ module.exports = function (app) {
       res.json(results);
     });
   });
-};
+}
+
+module.exports = exportAll;
