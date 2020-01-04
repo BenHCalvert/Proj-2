@@ -1,5 +1,7 @@
 const sequelize = require('sequelize');
+const twilio = require('twilio');
 const db = require('../models');
+require('dotenv').config();
 
 const test = true;
 
@@ -245,5 +247,21 @@ module.exports = function (app) {
     db.Adult.put({ where: { id: req.params.id } }).then((results) => {
       res.json(results);
     });
+  });
+
+  // Send SMS
+  // Based on node.js docs here https://www.twilio.com/docs/sms/quickstart/node
+  app.post('/api/sms', (req, res) => {
+    const messages = req.body.tMessage;
+    const { pNumber } = req.body;
+    const { accountSID } = process.env;
+    const { authToken } = process.env;
+    const client = new twilio(accountSID, authToken);
+    //
+    client.messages.create({
+      body: messages,
+      to: pNumber,
+      from: process.env.twilioNumber,
+    }).then((message) => console.log(message));
   });
 };
