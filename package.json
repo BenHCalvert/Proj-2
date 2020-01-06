@@ -20,7 +20,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^1.6.5",
     "react-scripts": "^3.3.0",
-    "sequelize": "^5.8.6",
+    "sequelize": "^5.21.3",
     "twilio": "^3.39.1"
   },
   "devDependencies": {

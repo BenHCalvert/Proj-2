@@ -1,18 +1,18 @@
+
 const sequelize = require('sequelize');
 const twilio = require('twilio');
+// const sequelize = require('sequelize');
 const db = require('../models');
 require('dotenv').config();
 
 const test = true;
 
-module.exports = function (app) {
+function exportAll(app) {
   // Get all
   app.get('/api', (req, res) => {
     db.Example.findAll({}).then((results) => {
       res.json(results);
-      if (test) {
-        console.log('get all');
-      }
+      if (test) { console.log('get all'); }
     });
   });
 
@@ -133,7 +133,13 @@ module.exports = function (app) {
 
   // post one student
   app.post('/api/student', (req, res) => {
-    db.Student.create({}).then((results) => {
+    db.Student.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies
+    }).then((results) => {
       res.json(results);
       if (test) {
         console.log('post new team');
@@ -143,6 +149,7 @@ module.exports = function (app) {
 
   // delete a student by student id. May need to change id header to match
   app.delete('/api/student/:id', (req, res) => {
+    console.log("in route delte", req);
     db.Student.destroy({
       where: { id: req.params.id },
     }).then((results) => {
@@ -152,7 +159,14 @@ module.exports = function (app) {
 
   // update one student
   app.put('/api/student/:id', (req, res) => {
-    db.Student.put({
+    console.log("in stud put",req);
+    db.Student.update({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies,
+    }, {
       where: { id: req.params.id },
     }).then((results) => {
       res.json(results);
@@ -213,8 +227,6 @@ module.exports = function (app) {
 
   // get families
   app.get('/api/family', (req, res) => {
-    // select f.id, f.adult_type, a.first_name, s.first_name from families f join adults a on f.adultId = a.id join students s on f.studentId = s.id order by f.id;
-    // sequelize.query("SELECT f.id, f.adult_type, a.first_name, s.first_name FROM families f JOIN adults a ON f.adultId = a.id JOIN students s ON f.studentId = s.id;", { type: sequelize.QueryTypes.SELECT})
     db.Family.findAll({})
       .then((results) => {
         res.json(results);
@@ -265,3 +277,6 @@ module.exports = function (app) {
     }).then((message) => console.log(message));
   });
 };
+}
+
+module.exports = exportAll;
