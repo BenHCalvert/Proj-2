@@ -277,6 +277,5 @@ function exportAll(app) {
     }).then((message) => console.log(message));
   });
 };
-}
 
 module.exports = exportAll;
