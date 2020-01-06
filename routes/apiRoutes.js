@@ -276,7 +276,6 @@ function exportAll(app) {
       from: process.env.twilioNumber,
     }).then((message) => console.log(message));
   });
-};
 }
 
 module.exports = exportAll;
