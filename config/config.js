@@ -1,27 +1,27 @@
 require('dotenv').config();
 
 module.exports = {
-  "development": {
-    "username": "root",
-    "password": process.env.MYSQL_PSWD,
-    "database": "sunnyside_db",
-    "host": "localhost",
-    "port": 3306,
-    "dialect": "mysql"
+  development: {
+    username: 'root',
+    password: process.env.MYSQL_PWD,
+    database: 'sunnyside_db',
+    host: 'localhost',
+    port: 3306,
+    dialect: 'mysql',
   },
-  "test": {
-    "username": "root",
-    "password": process.env.MYSQL_PSWD,
-    "database": "test_sunnyside_db",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
+  test: {
+    username: 'root',
+    password: process.env.MYSQL_PSWD,
+    database: 'test_sunnyside_db',
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false,
   },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
-}
+  production: {
+    use_env_variable: 'JAWSDB_URL',
+    dialect: 'mysql',
+  },
+};
 
 /*
 module.exports = {
