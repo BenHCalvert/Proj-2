@@ -11,6 +11,7 @@ const db = require('./models');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -38,7 +39,9 @@ if (process.env.NODE_ENV === 'test') {
   syncOptions.force = true;
 }
 
+  console.log("here");
 // Starting the server, syncing our models ------------------------------------/
+
 db.sequelize.sync(syncOptions).then(() => {
   app.listen(PORT, () => {
     console.log(
