@@ -269,8 +269,8 @@ function exportAll(app) {
     const { tMessage } = req.query;
     // const { accountSID } = process.env;
     // const { authToken } = process.env;
-    const accountSID = 'AC28a446dbb25a84ec695510ff623da404';
-    const authToken = 'f71325af174b2b80aab6289ffc4456f5';
+    const accountSID = '';
+    const authToken = '';
     console.log(authToken);
     console.log(accountSID);
     const client = new twilio(accountSID, authToken);
