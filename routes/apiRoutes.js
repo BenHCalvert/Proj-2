@@ -284,7 +284,7 @@ function exportAll(app) {
       console.log(data);
     });
   });
-}
+};
 
 
 module.exports = exportAll;
