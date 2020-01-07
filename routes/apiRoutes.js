@@ -267,10 +267,10 @@ function exportAll(app) {
   app.get('/api/sms', (req, res) => {
     const { pNumber } = req.query;
     const { tMessage } = req.query;
-    // const { accountSID } = process.env;
-    // const { authToken } = process.env;
-    const accountSID = '';
-    const authToken = '';
+    const { accountSID } = process.env;
+    const { authToken } = process.env;
+    // const accountSID = '';
+    // const authToken = '';
     console.log(authToken);
     console.log(accountSID);
     const client = new twilio(accountSID, authToken);
