@@ -12,7 +12,9 @@ function exportAll(app) {
   app.get('/api', (req, res) => {
     db.Example.findAll({}).then((results) => {
       res.json(results);
-      if (test) { console.log('get all'); }
+      if (test) {
+        console.log('get all');
+      }
     });
   });
 
@@ -138,7 +140,7 @@ function exportAll(app) {
       last_name: req.body.last_name,
       grade: req.body.grade,
       gender: req.body.gender,
-      allergies: req.body.allergies
+      allergies: req.body.allergies,
     }).then((results) => {
       res.json(results);
       if (test) {
@@ -149,7 +151,7 @@ function exportAll(app) {
 
   // delete a student by student id. May need to change id header to match
   app.delete('/api/student/:id', (req, res) => {
-    console.log("in route delte", req);
+    console.log('in route delte', req);
     db.Student.destroy({
       where: { id: req.params.id },
     }).then((results) => {
@@ -159,7 +161,7 @@ function exportAll(app) {
 
   // update one student
   app.put('/api/student/:id', (req, res) => {
-    console.log("in stud put",req);
+    console.log('in stud put', req);
     db.Student.update({
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -199,8 +201,7 @@ function exportAll(app) {
 
   // post one adult
   app.post('/api/adult', (req, res) => {
-    db.Adult.create({
-    }).then((results) => {
+    db.Adult.create({}).then((results) => {
       res.json(results);
     });
   });
@@ -262,20 +263,28 @@ function exportAll(app) {
   });
 
   // Send SMS
-  // Based on node.js docs here https://www.twilio.com/docs/sms/quickstart/node
-  app.post('/api/sms', (req, res) => {
-    const messages = req.body.tMessage;
-    const { pNumber } = req.body;
-    const { accountSID } = process.env;
-    const { authToken } = process.env;
+
+  app.get('/api/sms', (req, res) => {
+    const { pNumber } = req.query;
+    const { tMessage } = req.query;
+    // const { accountSID } = process.env;
+    // const { authToken } = process.env;
+    const accountSID = 'AC28a446dbb25a84ec695510ff623da404';
+    const authToken = 'f71325af174b2b80aab6289ffc4456f5';
+    console.log(authToken);
+    console.log(accountSID);
     const client = new twilio(accountSID, authToken);
-    //
     client.messages.create({
-      body: messages,
       to: pNumber,
-      from: process.env.twilioNumber,
-    }).then((message) => console.log(message));
+      from: '+12023187519',
+      body: tMessage,
+    //   // from: process.env.twilioNumber,
+    }, (err, data) => {
+      if (err) console.log(err);
+      console.log(data);
+    });
   });
 }
+
 
 module.exports = exportAll;
