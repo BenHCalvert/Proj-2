@@ -40,7 +40,6 @@ typings/
 .env
 # gatsby files
 .cache/
-
 # Mac files
 .DS_Store
 # Yarn
@@ -55,3 +54,4 @@ yarn-error.log
 Proj-2.iml
 dotenv
 .env
+
