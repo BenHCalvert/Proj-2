@@ -33,6 +33,7 @@ tbody {
   /* commented out for now to make the tables easier to read, not sure what this was added - gdp */
   /* height:250px; */
   overflow:auto;
+  margin: 600px -574px 220px -75px;
   }
   thead, tbody tr {
   display:table;
@@ -48,6 +49,467 @@ tbody {
   width:25%;
   }
 
+<<<<<<< HEAD
+
+  .cld-main {
+    width: 330px;
+  }
+  .cld-main a {
+    color: #333;
+    font-weight: bold;
+  }
+  .cld-datetime {
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .cld-datetime .today {
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+  }
+  .cld-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .cld-nav:hover {
+    cursor: pointer;
+  }
+  .cld-nav:hover svg {
+    fill: #666;
+  }
+  .cld-rwd {
+    float: left;
+  }
+  .cld-fwd {
+    float: right;
+  }
+  .cld-nav svg:hover {
+  }
+  .cld-labels,
+  .cld-days {
+    padding-left: 0;
+  }
+  .cld-label,
+  .cld-day {
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-day.today .cld-number {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    background: #666;
+    color: #fff;
+  }
+  .cld-day.disableDay {
+    opacity: 0.5;
+  }
+  .cld-day.nextMonth,
+  .cld-day.prevMonth {
+    opacity: 0.33;
+  }
+  .cld-number {
+    position: relative;
+    margin: 5px;
+    padding: 5px;
+  }
+  .cld-title {
+    position: absolute;
+    z-index: 5;
+    display: none;
+    top: 30px;
+    left: 0;
+    padding: 5px 10px;
+    background: #fff;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .cld-number:hover .cld-title {
+    display: block;
+  }
+  .cld-title::before {
+    content: "";
+    position: absolute;
+    top: -7.5px;
+    left: 7.5px;
+    width: 0;
+    height: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+  
+    border-bottom: 7.5px solid #ccc;
+  }
+  .cld-number.eventday {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    border: 1px solid #999;
+  }
+  .cld-number.eventday:hover {
+    cursor: pointer;
+    background: #eee;
+  }
+  .today .cld-number.eventday:hover {
+    background: #888;
+  }
+  
+  .game {
+  }
+  .cld-main {
+    width: 400px;
+  }
+  .cld-main a {
+    color: #0080ff;
+  }
+  .cld-main svg {
+    fill: #0080ff;
+  }
+  .cld-datetime {
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .cld-datetime .today {
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+  }
+  .cld-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .cld-nav:hover {
+    cursor: pointer;
+  }
+  .cld-nav:hover svg {
+    fill: #005eff;
+  }
+  .cld-rwd {
+    float: left;
+  }
+  .cld-fwd {
+    float: right;
+  }
+  .cld-nav svg:hover {
+  }
+  .cld-labels,
+  .cld-days {
+    padding-left: 0;
+  }
+  .cld-label,
+  .cld-day {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-day {
+    border: 1px solid #eee;
+  }
+  .cld-day.today .cld-number {
+    background: #0080ff;
+    color: #fff;
+  }
+  .cld-day.disableDay {
+    opacity: 0.5;
+  }
+  .cld-day.nextMonth,
+  .cld-day.prevMonth {
+    opacity: 0.33;
+  }
+  .cld-number {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+  }
+  .cld-title {
+    position: absolute;
+    z-index: 5;
+    display: none;
+    top: 35px;
+    left: 0;
+    padding: 5px 10px;
+    background: #fff;
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .cld-number:hover .cld-title {
+    display: block;
+  }
+  .cld-title::before {
+    content: "";
+    position: absolute;
+    top: -7.5px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+  
+    border-bottom: 7.5px solid #ccc;
+  }
+  .cld-number.eventday {
+    font-weight: bold;
+    color: #0080ff;
+  }
+  .cld-number.eventday:hover {
+    cursor: pointer;
+    background: #eee;
+  }
+  .today .cld-number.eventday:hover {
+    background: #005eff;
+  }
+  
+  event {
+  }
+  
+  .cld-main {
+    width: 660px;
+  }
+  .cld-main a {
+    color: #7b00ff;
+  }
+  .cld-datetime {
+    position: relative;
+    width: 66%;
+    min-width: 100px;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+  }
+  .cld-datetime .today {
+    position: relative;
+    float: left;
+    width: calc(100% - 40px);
+    margin: auto;
+    text-align: center;
+  }
+  .cld-nav {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+  }
+  .cld-nav:hover {
+    cursor: pointer;
+  }
+  .cld-nav:hover svg {
+    fill: #666;
+  }
+  .cld-rwd {
+    float: left;
+  }
+  .cld-fwd {
+    float: right;
+  }
+  .cld-nav svg:hover {
+  }
+  .cld-labels,
+  .cld-days {
+    padding-left: 0;
+  }
+  .cld-label,
+  .cld-day {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+  }
+  .cld-day {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 5px;
+    height: 66px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+  }
+  .cld-day.clickable:hover {
+    cursor: pointer;
+  }
+  .cld-day.today {
+    border: 1px solid #7b00ff;
+  }
+  .cld-day.disableDay {
+    opacity: 0.5;
+  }
+  .cld-day.nextMonth,
+  .cld-day.prevMonth {
+    opacity: 0.33;
+  }
+  .cld-number {
+    margin: 0;
+    text-align: left;
+  }
+  .cld-title {
+    font-size: 10px;
+    display: block;
+    margin: 0;
+    font-weight: normal;
+  }
+  .cld-day:hover {
+    background: #eee;
+  }
+  .cld-number.eventday {
+    font-weight: bold;
+  }
+  .cld-number.eventday:hover {
+    background: #eee;
+  }
+  .today .cld-number.eventday:hover {
+  }
+  
+  event2 {
+  }
+  
+  .container {
+    
+  
+  
+  }
+  
+  ​.current-time {
+    background: tomato;
+  }
+  h6 {
+    /* background: tomato; */
+    text-align: center;
+    
+    margin: -20px 200px -205px 740px;
+  }
+  /* h1 {
+    background: tomato;
+    text-align: center;
+    color: wheat;
+    margin: 30px 210spx -137px 640x;
+  } */
+  
+  /* .btn {
+    height: 25px;
+    width: 50px;
+    margin: -25px -50px;
+    background: bisque;
+    color: teal;
+  }
+  ​ */
+  
+  
+  .timeBlock {
+    align-self: auto;
+    margin: 5px 25px 5px -5px;
+  }
+  .box {
+    margin: 0px 240px;
+  }
+  .current-time {
+    color: black;
+    text-align: center;
+    color: yellowgreen;
+    /* size: 0in; */
+    padding: 40px;
+    width: 960px;
+    height: 110px;
+    margin: center;
+  }
+  
+  #calendar {
+    color: blue;
+    background: brown;
+  }
+  
+  
+  
+  section.details-container {
+    max-width: 25rem;
+  }
+  
+  section.primary {
+    margin-bottom: 1rem;
+    width: 65%;
+  }
+  
+  li.cld-day {
+    position: center;
+  }
+  .cld-main {
+    margin: 2px 250px 30px 10px;
+    border-radius: 4px;
+    background: yellowgreen;
+  }
+  
+  .feature-box.b {
+    text-align: center;
+    border-radius: 4px;
+    border: 2px solid silver;
+    bottom: 347px;
+    width: 1200px;
+    height: 490px;
+    position: absolute;
+    padding: 10px 2px;
+    margin: -550px 150px;
+    background: 777;
+  }
+  
+  /* .btn-lg {
+    color: red;
+    background: #005eff;
+    display: table-row;
+  } */
+  
+  
+   section.details-container {
+        max-width: 25rem;
+    }
+    
+    /* section {
+        -webkit-box-flex: 1.5;
+        flex-grow: 1.5;
+    }  */
+  
+   .love a {
+    font-weight: 600;
+    width: 10rem;
+  
+  } 
+  
+  .amazon {
+    margin: 30px 0px -50px 500px;
+    /* width: 120px; */
+    /* display: inline-block; */
+    
+    background: cornflowerblue;
+    
+  }
+  h7 {
+    width: 240px;
+    height: 52px;
+    margin: 40px 70px -550px 820px;
+  }
+  
+=======
   .formHeader {
     padding: 15px 5px;
     text-align: left;
@@ -55,3 +517,4 @@ tbody {
     vertical-align: middle;
     border-radius: 2px;
   }
+>>>>>>> master
