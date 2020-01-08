@@ -3,6 +3,7 @@ var path = require("path");
 
 module.exports = function(app) {
   // Load index page
+  /*
   app.get("/", function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/homepage.html"));
     db.Team.findAll({}).then(function(data) {
@@ -10,6 +11,7 @@ module.exports = function(app) {
       res.render("index", {team: data});
     });
   });
+  */
 
   // Load inventory page
   app.get("/inventory", function(req, res) {
@@ -20,8 +22,23 @@ module.exports = function(app) {
   app.get("/student", function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/student.html"));  
     db.Student.findAll({}).then(function(data) {
-      console.log("hsbdata",{student: data});
-      res.render("student", {student: data});
+      console.log("hsbdata",{ student: data });
+      res.render("student", { student: data });
+    });
+  });
+
+  app.get("/", function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/student.html"));  
+    console.log("here");
+    db.Student.findAll({}).then(function(student) {
+      console.log("hsbdata",{ student });
+      db.Team.findAll({}).then(function(team) {
+      console.log("hsbdata",{ team });
+        res.render("index", { 
+          student: student, 
+          team: team, 
+        });
+      });
     });
   });
 

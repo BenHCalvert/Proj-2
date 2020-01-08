@@ -25,7 +25,7 @@ $(document).ready(() => {
 
   $sendSmsButton.on('click', () => {
     const message = $('#textarea1').val();
-    const number = $('#name').val();
+    const number = $('select[id=phone]').val();
     sendMessage(number, message);
     // console.log(message, number);
     // console.log($(this));

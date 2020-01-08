@@ -45,10 +45,9 @@
     </div>
   </div>
 
-
   <div class="container">
     <div class="section">
-        
+
         <table
         class="striped"
         class="centered">
@@ -90,11 +89,15 @@
 	  <div class="modal-content">
 		  <h4>Send A Message</h4>
 		  <div class="input-field col s12">
-		  <select>
+		  <select id="phone">
 			  <option value="" disabled selected>Select Student</option>
-			  <option id="name" value="+13039075882">My Number (303-907-5882)</option>
-			  <option value="2">Option 2</option>
-			  <option value="3">Option 3</option>
+			  {{!-- <option id="name" value="+13039075882">My Number (303-907-5882)</option> --}}
+			  {{!-- <option value="2">Option 2</option> --}}
+			  {{!-- <option value="3">Option 3</option> --}}
+        {{#each student}}
+          {{>student/studCont-block}}
+        {{/each}}
+        
 		  </select>
 			  <div class="row">
 				  <form class="col s12">
