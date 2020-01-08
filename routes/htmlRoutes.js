@@ -4,13 +4,43 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/homepage.html"));
-    // db.Example.findAll({}).then(function(dbExamples) {
-    //   res.render("index", {
-    //     msg: "Welcome!",
-    //     examples: dbExamples
-    //   });
-    // });
+    // res.sendFile(path.join(__dirname, "../public/homepage.html"));
+    db.Team.findAll({}).then(function(data) {
+      console.log("hsbdata",{team: data});
+      res.render("index", {team: data});
+    });
+  });
+
+  // Load inventory page
+  app.get("/inventory", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/inventory.html"));  
+  });
+
+  // Load student page
+  app.get("/student", function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/student.html"));  
+    db.Student.findAll({}).then(function(data) {
+      console.log("hsbdata",{student: data});
+      res.render("student", {student: data});
+    });
+  });
+
+  app.get("/cud_student", function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/student.html"));  
+    db.Student.findAll({}).then(function(data) {
+      console.log("hsbdata",{student: data});
+      res.render("cud_student", {student: data});
+    });
+  });
+
+   // Load adult page
+   app.get("/adult", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/adult.html"));  
+  });
+
+  // Load roster page
+  app.get("/roster", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/roster.html"));  
   });
 
 

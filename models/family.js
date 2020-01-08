@@ -15,13 +15,16 @@ module.exports = function(sequelize, DataTypes) {
     models.Student.belongsToMany(models.Adult, {
       through: 'Family',
       foreignKey: 'studentId',
+      otherKey: 'adultId',
     });
 
     models.Adult.belongsToMany(models.Student, {
       through: 'Family',
       foreignKey: 'adultId',
+      otherKey: 'studentId',
     });
   }
+
 
   return Family;
 };

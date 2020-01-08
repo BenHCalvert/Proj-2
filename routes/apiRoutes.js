@@ -1,144 +1,290 @@
-var db = require("../models");
+
+const sequelize = require('sequelize');
+const twilio = require('twilio');
+// const sequelize = require('sequelize');
+const db = require('../models');
+require('dotenv').config();
 
 const test = true;
 
-module.exports = function(app) {
+function exportAll(app) {
   // Get all
-  app.get("/api", function(req, res) {
-    db.Example.findAll({}).then(function(athdb) {
-      res.json(athdb);
+  app.get('/api', (req, res) => {
+    db.Example.findAll({}).then((results) => {
+      res.json(results);
       if (test) {
-        console.log('get all')}
+        console.log('get all');
+      }
     });
   });
 
-// ********************
-// Team 'API'
-// ********************
-
-    //get all teams
-    app.get("/api/team", function(req, res) {
-      db.Example.findAll({where: { id: req.params.team }}).then(function(athdb) {
-        res.json(athdb);
-        if (test) {
-          console.log('get all teams with')};
-      });
+  // ********************
+  // Team 'API'
+  // ********************
+  // get all teams
+  app.get('/api/team', (req, res) => {
+    db.Team.findAll({}).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('get all teams with');
+      }
     });
+  });
 
-    //get one team
-    app.get("/api/team/:id", function(req, res) {
-      db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // get one team
+  app.get('/api/team/:id', (req, res) => {
+    db.Team.findOne({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //post one team
-    app.post("/api/:team", function(req, res) {
-      db.Example.create({where: { id: req.params.team }}).then(function(athdb) {
-        res.json(athdb);
-        if (test) {
-          console.log('post new team')};
-      });
+  // post one team
+  app.post('/api/:team', (req, res) => {
+    db.Team.create({ where: { id: req.params.team } }).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('post new team');
+      }
     });
+  });
 
-    //delete a team by team id. May need to change id header to match 
-    app.delete("/api/team/:id", function(req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // delete a team by team id. May need to change id header to match
+  app.delete('/api/team/:id', (req, res) => {
+    db.Team.destroy({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //update one team by team id
-    app.put("/api/team/:id", function(req, res) {
-      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // update one team by team id
+  app.put('/api/team/:id', (req, res) => {
+    db.Team.put({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    
-
-// ********************
-// Student 'API'
-// ********************
-    
-    //get All Students
-    app.get("/api/student", function(req, res) {
-      db.Example.findAll({}).then(function(athdb) {
-        res.json(athdb);
-        if (test) {
-          console.log('get all students')};
-      });
+  // ********************
+  // Roster 'API'
+  // ********************
+  // get all roster
+  app.get('/api/roster', (req, res) => {
+    db.Roster.findAll({}).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('get all teams with');
+      }
     });
+  });
 
-    //get one student
-    app.get("/api/student/:id", function(req, res) {
-      db.Example.findOne({where: { id: req.params.id }}).then(function(athdb) {
-        res.json(athdb);
-        if (test) {
-          console.log('get one student')};
-      });
+  // get one roster
+  app.get('/api/roster/:id', (req, res) => {
+    db.Roster.findOne({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //post one student
-    app.post("/api/student", function(req, res) {
-      db.Example.create({}).then(function(athdb) {
-        res.json(athdb);
-        if (test) {
-          console.log('post new team')};
-      });
+  // get one roster by teamId
+  app.get('/api/roster/team/:id', (req, res) => {
+    db.Roster.findAll({ where: { teamId: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //delete a student by student id. May need to change id header to match 
-    app.delete("/api/student/:id", function(req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // delete a team by team id. May need to change id header to match
+  app.delete('/api/roster/:id', (req, res) => {
+    db.Roster.destroy({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //update one student
-    app.put("/api/student/:id", function(req, res) {
-      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
-    });
+  // ********************
+  // Student 'API'
+  // ********************
 
-    
-// ********************
-// Adult 'API'
-// ********************
-    
-    //get All adults
-    app.get("/api/adult", function(req, res) {
-      db.Example.findAll({}).then(function(athdb) {
-        res.json(athdb);
-      });
-    });
+  // get All Students
+  app.get('/api/student', (req, res) => {
+    db.Student.findAll({
+      include: [
+        { model: db.Adult },
+        { model: db.Team },
+      ],
+    }).then = (results) => {
+      console.log(results);
+      res.json(results);
+      console.log('get all students', results);
+      if (test) {
+        console.log('get all students');
+      }
+    };
+  });
 
-    //get one adult
-    app.get("/api/adult/:id", function(req, res) {
-      db.Example.findOne({where: { id: req.params.id }}).then(function(athdb) {
-        res.json(athdb);        
-      });
+  // get one student
+  app.get('/api/student/:id', (req, res) => {
+    db.Student.findOne({
+      where: { id: req.params.id },
+      include: [
+        { model: db.Adult },
+        { model: db.Team },
+      ],
+    }).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('get one student');
+      }
     });
+  });
 
-    //post one adult
-    app.post("/api/adult", function(req, res) {
-      db.Example.create({}).then(function(athdb) {
-        res.json(athdb);
-      });
+  // post one student
+  app.post('/api/student', (req, res) => {
+    db.Student.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies,
+    }).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('post new team');
+      }
     });
+  });
 
-    //delete an adult by adult id. May need to change id header to match 
-    app.delete("/api/adult/:id", function(req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // delete a student by student id. May need to change id header to match
+  app.delete('/api/student/:id', (req, res) => {
+    console.log('in route delte', req);
+    db.Student.destroy({
+      where: { id: req.params.id },
+    }).then((results) => {
+      res.json(results);
     });
+  });
 
-    //update one adult
-    app.put("/api/adult/:id", function(req, res) {
-      db.Example.put({ where: { id: req.params.id } }).then(function(dbExample) {
-        res.json(dbExample);
-      });
+  // update one student
+  app.put('/api/student/:id', (req, res) => {
+    console.log('in stud put', req);
+    db.Student.update({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      grade: req.body.grade,
+      gender: req.body.gender,
+      allergies: req.body.allergies,
+    }, {
+      where: { id: req.params.id },
+    }).then((results) => {
+      res.json(results);
     });
+  });
+
+
+  // ********************
+  // Adult 'API'
+  // ********************
+
+  // get All adults
+  app.get('/api/adult', (req, res) => {
+    db.Adult.findAll({
+      include: [{ model: db.Student }],
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // get one adult
+  app.get('/api/adult/:id', (req, res) => {
+    db.Adult.findOne({
+      where: { id: req.params.id },
+      include: [{ model: db.Student }],
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // post one adult
+  app.post('/api/adult', (req, res) => {
+    db.Adult.create({}).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // delete an adult by adult id. May need to change id header to match
+  app.delete('/api/adult/:id', (req, res) => {
+    db.Adult.destroy({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // update one adult
+  app.put('/api/adult/:id', (req, res) => {
+    db.Adult.put({
+      where: { id: req.params.id },
+    }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // ********************
+  // Family 'API'
+  // ********************
+
+  // get families
+  app.get('/api/family', (req, res) => {
+    db.Family.findAll({})
+      .then((results) => {
+        res.json(results);
+      });
+  });
+
+  // get one adult
+  app.get('/api/adult/:id', (req, res) => {
+    db.Adult.findOne({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // post one adult
+  app.post('/api/adult', (req, res) => {
+    db.Adult.create({}).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // delete an adult by adult id. May need to change id header to match
+  app.delete('/api/adult/:id', (req, res) => {
+    db.Adult.destroy({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // update one adult
+  app.put('/api/adult/:id', (req, res) => {
+    db.Adult.put({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // Send SMS
+
+  app.get('/api/sms', (req, res) => {
+    const { pNumber } = req.query;
+    const { tMessage } = req.query;
+    const { accountSID } = process.env;
+    const { authToken } = process.env;
+    // const accountSID = '';
+    // const authToken = '';
+    console.log(authToken);
+    console.log(accountSID);
+    const client = new twilio(accountSID, authToken);
+    client.messages.create({
+      to: pNumber,
+      from: '',
+      body: tMessage,
+    //   // from: process.env.twilioNumber,
+    }, (err, data) => {
+      if (err) console.log(err);
+      console.log(data);
+    });
+  });
 };
+
+
+module.exports = exportAll;

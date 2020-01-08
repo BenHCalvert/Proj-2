@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>SunnySide Middle School</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="./styles/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="./styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
   <nav class="black lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Sunnyside Middle School</a>
       <ul id="nav-full" class="right hide-on-med-and-down">
@@ -26,69 +13,80 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
     
-      <h1 class="header center black-text font-family times">Students</h1>
+      <h1 class="header center black-text font-family times">Create/Update/Delete Students</h1>
       <div class="row">
           <div class="col s12 m3">
             <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
+          </div>
+          <div class="col s12 m3">
+            <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
+          </div>
+          <div class="col s12 m3">
+            <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
         </div>
-      
-
-      
-        <div class="col s12 m3">
-          <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
-      </div>
-    
-
-    
-        <div class="col s12 m3">
-          <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
-      </div>
-    
-
-    
         <div class="col s12 m3">
           <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
+        </div>
+      </div>
+    <br><br>
+    </div>
+  </div>
+
+  <div class="container">
+  <form class="student-form">
+    <div class="row">
+      <div class="col s12 m4 l4">
+        <table class="z-depth-5 highlight">
+          <thead>
+            <tr>
+              <th colspan=2>Student List</th>
+            </tr>
+            <tr>
+              <th>Name</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each student}}
+              {{>student/student-block}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="col s12 m4 l4">
+        {{>student/cud-student-form-block}}
+      </div>
+      <div class="col s12 m4 l4">
+                <table class="z-depth-5 highlight">
+          <thead>
+            <tr>
+              <th colspan=2>Adult Contacts</th>
+            </tr>
+            <tr>
+              <select id="adult-list" multiple>
+                <option value="" disabled selected>Choose Students Adults</option>
+              </select>
+              <label>Select Adults</label>
+            </tr>
+          </thead>
+          {{!-- <tbody id="adult-list"> --}}
+          {{!-- </tbody> --}}
+        </table>
       </div>
     </div>
-      <br><br>
+    <div class="row">
+      <div class="col s12 m12">
+        <a href="student" id="reset-button" class="btn-small waves-effect waves-light yellow black-text">Reset</a>
 
+        <button class="btn-small waves-effect waves-light yellow black-text student-btn" type="submit" value='add'> Add </button>
+        <button class="btn-small waves-effect waves-light yellow black-text student-btn" type="submit" value='update'> Update </button>
+        <button class="btn-small waves-effect waves-light yellow black-text student-btn" type="submit" value='delete'> Delete </button>
+
+        {{!-- <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Player</a> --}}
+      </div>
     </div>
-  </div>
-
-
-  <div class="container">
-    <div class="section">
-        
-      <body>
-        <div class="col s3 m3 l3">
-          <table class="z-depth-5">
-            <thead>
-              <tr>
-                <th>Student List</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr id="studentList">
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        
-      
-      
-      
-      </body> 
-     
-  </div>
-  </div>
-
-  <div class="container">
-  <div class="row">
-  <div class="col s12 m3">
-    <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Player</a>
-    </div>
-  </div>
+  </form>
+</div>
 </div>
 
 <br><br>
@@ -167,20 +165,16 @@
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="material-icons">accessibility</i></h2>
           <h5 class="center">Student Info</h5>
-
           <table>
             <tbody>
                <tr>
                  <td>name</td>
-                 
                </tr>
                <tr>
                  <td>name</td>
-                 
                </tr>
                <tr>
                  <td>name</td>
-                 
                </tr>
                <tr>
                  <td>name</td>
@@ -220,16 +214,18 @@
       </div>
     </div>
     <div class="footer-copyright">
-     
     </div>
   </footer>
 
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  {{!-- what are these _idx files for? I dont see them can we delete these? --}}
   <script src="./js/student_idx.js"></script>
   <script src="./js/adult_idx.js"></script>
+
   <script src="./js/materialize.js"></script>
+  <script src="./js/student_crud.js"></script>
   <script src="./js/init.js"></script>
 
   </body>

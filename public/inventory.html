@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="./styles/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="./styles/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 </head>
 <body>
   <nav class="black lighten-1" role="navigation">
@@ -26,28 +27,28 @@
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
     
-      <h1 class="header center black-text font-family times">Students</h1>
+      <h1 class="header center black-text font-family times">Inventory</h1>
       <div class="row">
           <div class="col s12 m3">
-            <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
+        <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Student</a>
         </div>
       
 
       
         <div class="col s12 m3">
-          <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
+      <a href="\adult.html" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
       </div>
     
 
     
         <div class="col s12 m3">
-          <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+      <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
       </div>
     
 
     
         <div class="col s12 m3">
-          <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
+      <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
       </div>
     </div>
       <br><br>
@@ -61,14 +62,32 @@
         
       <body>
         <div class="col s3 m3 l3">
-          <table class="z-depth-5">
+          <table>
             <thead>
               <tr>
-                <th>Student List</th>
+                <th>Inventory List</th>
               </tr>
             </thead>
             <tbody>
-              <tr id="studentList">
+              <tr>
+                <td>item</td>
+                
+              </tr>
+              <tr>
+                <td>item</td>
+                
+              </tr>
+              <tr>
+                <td>item</td>
+                
+              </tr>
+              <tr>
+                <td>item</td>
+                
+              </tr>
+              <tr>
+                <td>item</td>
+               
               </tr>
             </tbody>
           </table>
@@ -86,7 +105,7 @@
   <div class="container">
   <div class="row">
   <div class="col s12 m3">
-    <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Player</a>
+    <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text"><i class="material-icons">add</i>   Add An Item</a>
     </div>
   </div>
 </div>
@@ -99,74 +118,63 @@
 
     <!--   Icon Section   -->
     <div class="row">
-      <div class="col s12 m3">
+      <div class="col s12 m4">
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="material-icons">account_box</i></h2>
-          <h5 class="center">Adults</h5>
+          <h5 class="center">Who Has It</h5>
             <table>
            <tbody>
-              <tr id="adultList" class="black-text grey">
-
+              <tr>
+                <td>name</td>
+                
+              </tr>
+              <tr>
+                <td>name</td>
+                
+              </tr>
+              <tr>
+                <td>name</td>
+                
+              </tr>
+              <tr>
+                <td>name</td>
+                
               </tr></table>
         </div>
       </div>
 
-      <div class="col s12 m3">
+      <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-          <h5 class="center">Teams</h5>
+          <h2 class="center light-blue-text"><i class="material-icons">contact_phone</i></h2>
+          <h5 class="center">Primary Contact</h5>
 
           <table>
             <tbody>
                <tr>
-                 <td>name</td>
+                 <td>contact</td>
                  
                </tr>
                <tr>
-                 <td>name</td>
+                 <td>contact</td>
                  
                </tr>
                <tr>
-                 <td>name</td>
+                 <td>contact</td>
                  
                </tr>
                <tr>
-                 <td>name</td>
+                 <td>contact</td>
                  
                </tr></table>        
               </div>
       </div>
 
-      <div class="col s12 m3">
-        <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">assignment</i></h2>
-          <h5 class="center">Forms</h5>
+      
 
-          <table>
-            <tbody>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr></table>
-                      </div>
-      </div>
-
-      <div class="col s12 m3">
+      <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center light-blue-text"><i class="material-icons">accessibility</i></h2>
-          <h5 class="center">Student Info</h5>
+          <h2 class="center light-blue-text"><i class="material-icons">thumbs_up_down</i></h2>
+          <h5 class="center">Condition</h5>
 
           <table>
             <tbody>
@@ -231,6 +239,6 @@
   <script src="./js/adult_idx.js"></script>
   <script src="./js/materialize.js"></script>
   <script src="./js/init.js"></script>
-
+  
   </body>
 </html>

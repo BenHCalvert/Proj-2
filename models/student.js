@@ -1,25 +1,25 @@
-module.exports = function(sequelize, DataTypes) {
-  const Student = sequelize.define("Student", {
+function ExportDb(sequelize, DataTypes) {
+  const Student = sequelize.define('Student', {
     first_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     last_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     grade: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        len: [1]
-      }
+        len: [1],
+      },
     },
-    gender:  {
-      type: DataTypes.ENUM('boy','girl','other'),
-      allowNull: false
+    gender: {
+      type: DataTypes.ENUM('boy', 'girl', 'other'),
+      allowNull: false,
     },
-    allergies: DataTypes.STRING
+    allergies: DataTypes.STRING,
   });
 
   Student.associate = function (models) {
@@ -27,6 +27,13 @@ module.exports = function(sequelize, DataTypes) {
       through: 'Family',
       foreignKey: 'studentId',
     });
-  }
+
+    models.Student.belongsToMany(models.Team, {
+      through: 'Roster',
+      foreignKey: 'studentId',
+    });
+  };
   return Student;
 };
+
+module.exports = ExportDb;
