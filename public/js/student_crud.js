@@ -22,8 +22,6 @@ $(() => {
     $.ajax(`/api/student/${studId}`, {
       type: 'GET',
     }).then(
-        renderFullAdultList(res); // only applicable for edit page 
-    }).then(
       (res, req) => {
         // console.log(">>>>>>got back selected student info", res);
         renderStudForm(res);
