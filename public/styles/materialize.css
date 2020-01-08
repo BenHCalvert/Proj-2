@@ -4534,8 +4534,9 @@ h2 {
 
 h3 {
   font-size: 2.92rem;
-  line-height: 110%;
-  margin: 1.9466666667rem 0 1.168rem 0;
+  line-height: 120%;
+  width: 300px;
+  margin: 550px;
 }
 
 h4 {
@@ -5264,6 +5265,7 @@ small {
 
 .btn-floating {
   display: inline-block;
+  margin: 65px 311px;
   color: #fff;
   position: relative;
   overflow: hidden;
