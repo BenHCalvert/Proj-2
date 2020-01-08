@@ -34,6 +34,7 @@ tbody {
   /* commented out for now to make the tables easier to read, not sure what this was added - gdp */
   /* height:250px; */
   overflow:auto;
+  margin: 600px -574px 220px -75px;
   }
   thead, tbody tr {
   display:table;
@@ -48,6 +49,7 @@ tbody {
   table {
   width:25%;
   }
+
 
   .formHeader {
     padding: 15px 5px;
