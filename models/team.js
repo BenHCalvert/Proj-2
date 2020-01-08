@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     gender: {
       type: DataTypes.ENUM('girls','boys','co-ed'),
       allowNull: false,
-    }
+    },
   });
 
   Team.associate = function (models) {
