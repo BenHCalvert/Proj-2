@@ -267,6 +267,7 @@ function exportAll(app) {
   // Send SMS
 
   app.get('/api/sms', (req, res) => {
+    console.log("sms routes",req.query);
     const { pNumber } = req.query;
     const { tMessage } = req.query;
     const { ACCOUNT_SID } = process.env;

@@ -5,7 +5,7 @@ require('dotenv').config();
 module.exports = {
   development: {
     username: 'root',
-    password: 'root',
+    password: process.env.MYSQL_PSWD,
     database: 'sunnyside_db',
     host: 'localhost',
     port: 3306,

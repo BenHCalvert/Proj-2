@@ -8,6 +8,10 @@ function ExportDb(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    contact_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     grade: {
       type: DataTypes.INTEGER,
       allowNull: false,
