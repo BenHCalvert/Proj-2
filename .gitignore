@@ -53,3 +53,5 @@ yarn-error.log
 .idea/*
 Proj-2.iml
 dotenv
+.env
+

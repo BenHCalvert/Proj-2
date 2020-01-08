@@ -3,7 +3,9 @@ const sequelize = require('sequelize');
 const twilio = require('twilio');
 // const sequelize = require('sequelize');
 const db = require('../models');
-require('dotenv').config();
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../dotenv') });
+// require('dotenv').config();
 
 const test = true;
 
@@ -267,16 +269,12 @@ function exportAll(app) {
   app.get('/api/sms', (req, res) => {
     const { pNumber } = req.query;
     const { tMessage } = req.query;
-    const { accountSID } = process.env;
-    const { authToken } = process.env;
-    // const accountSID = '';
-    // const authToken = '';
-    console.log(authToken);
-    console.log(accountSID);
-    const client = new twilio(accountSID, authToken);
+    const { ACCOUNT_SID } = process.env;
+    const { AUTH_TOKEN } = process.env;
+    const client = new twilio(ACCOUNT_SID, AUTH_TOKEN);
     client.messages.create({
       to: pNumber,
-      from: '',
+      from: process.env.TWILIO_NUMBER,
       body: tMessage,
     //   // from: process.env.twilioNumber,
     }, (err, data) => {
