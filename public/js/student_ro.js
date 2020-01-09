@@ -22,7 +22,7 @@ $(() => {
     $.ajax(`/api/student/${studId}`, {
       type: 'GET',
     }).then(
-      (res, req) => {
+        (res, req) => {
         // console.log(">>>>>>got back selected student info", res);
         renderStudForm(res);
         renderAdultList(res); // only applicable for readonly page
