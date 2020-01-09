@@ -15,21 +15,20 @@
     
       <h1 class="header center black-text font-family times">Students</h1>
       <div class="row">
-          <div class="col s12 m3">
-            <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
-          </div>
-          <div class="col s12 m3">
-            <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
-          </div>
-          <div class="col s12 m3">
-            <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+        <div class="col s12 m3">
+          <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
         </div>
         <div class="col s12 m3">
-          <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
+          <a href="#" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
         </div>
+        <div class="col s12 m3">
+          <a href="#" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+        </div>
+      <div class="col s12 m3">
+        <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
       </div>
-    <br><br>
     </div>
+    <br><br>
   </div>
 
   <div class="container">
@@ -56,19 +55,38 @@
         {{>student/student-form-block}}
       </div>
       <div class="col s12 m4 l4">
-                <table class="z-depth-5 highlight">
-          <thead>
-            <tr>
-              <th colspan=2>Adult Contacts</th>
-            </tr>
-            <tr>
-              <th>Name</th>
-              <th>Contact Type</th>
-            </tr>
-          </thead>
-          <tbody id="adult-list">
-          </tbody>
-        </table>
+        <div class="row">
+          <table class="z-depth-5 highlight">
+            <thead>
+              <tr>
+                <th colspan=2>Adult Contacts</th>
+              </tr>
+              <tr>
+                <th>Name</th>
+                <th>Contact Type</th>
+              </tr>
+            </thead>
+            {{!-- updated using jQuery based on should be done from database --}}
+            <tbody id="adult-list">
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <table class="z-depth-5 highlight">
+            <thead>
+              <tr>
+                <th colspan=2>Team List</th>
+              </tr>
+              <tr>
+                <th>Team</th>
+                <th>Sport</th>
+              </tr>
+            </thead>
+            {{!-- updated using jQuery based on should be done from database --}}
+            <tbody id="team-list">
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -88,7 +106,6 @@
 
 <div class="container">
   <div class="section">
-
     <!--   Icon Section   -->
     <div class="row">
       <div class="col s12 m3">
@@ -98,7 +115,6 @@
             <table>
            <tbody>
               <tr id="adultList" class="black-text grey">
-
               </tr></table>
         </div>
       </div>
@@ -158,27 +174,6 @@
       <div class="col s12 m3">
         <div class="icon-block">
           <h2 class="center light-blue-text"><i class="material-icons">accessibility</i></h2>
-          <h5 class="center">Student Info</h5>
-
-          <table>
-            <tbody>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr>
-               <tr>
-                 <td>name</td>
-                 
-               </tr></table>
-                      </div>
       </div>
     </div>
 
@@ -220,9 +215,6 @@
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   {{!-- what are these _idx files for? I dont see them can we delete these? --}}
-  <script src="./js/student_idx.js"></script>
-  <script src="./js/adult_idx.js"></script>
-
   <script src="./js/materialize.js"></script>
   <script src="./js/student_ro.js"></script>
   <script src="./js/init.js"></script>
