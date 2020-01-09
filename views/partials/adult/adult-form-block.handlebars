@@ -1,0 +1,19 @@
+<form class="col s12 z-depth-5 student-form">
+	<div class="formHeader">Children</div>
+	<hr>
+	<div class="row">
+		<div class="input-field col s6">
+			<input type="hidden" id="childrenList" name="childrenId">
+			<input placeholder="First Name" id="first_name" type="text" class="validate" disabled>
+			<label for="first_name">First Name</label>
+			{{#each student}}
+				{{>adult/student}}
+			{{/each}}
+		</div>
+		<div class="input-field col s6">
+			<input placeholder="last Name" id="last_name" type="text" class="validate" disabled >
+			<label for="last_name">Last Name</label>
+		</div>
+	</div>
+
+</form>

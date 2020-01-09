@@ -52,8 +52,13 @@ module.exports = function (app) {
 
   // Load adult page
   app.get('/adult', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/adult.html'));
+    // res.sendFile(path.join(__dirname, '../public/adult.html'));
+    db.Adult.findAll({}).then((data) => {
+      console.log('hsbdata', { adult: data });
+      res.render('adult', { adult: data });
+    });
   });
+
 
   // Load roster page
   app.get('/roster', (req, res) => {
