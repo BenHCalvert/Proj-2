@@ -26,6 +26,7 @@ $(() => {
         // console.log(">>>>>>got back selected student info", res);
         renderStudForm(res);
         renderAdultList(res); // only applicable for readonly page
+        renderTeamList(res); // only applicable for readonly page
       },
     );
   });
@@ -90,11 +91,15 @@ function renderStudForm(data) {
   $('#first_name').val(data.first_name);
   $('#last_name').val(data.last_name);
 
-  $('#gender').find(`option[value=${data.gender}]`).prop('selected', true);
-  $('#gender').formSelect();
+  $('#gender').val(data.gender);
+  $('#grade').val(data.grade);
 
-  $('#grade').find(`option[value=${data.grade}]`).prop('selected', true);
-  $('#grade').formSelect();
+  // select boxes look wierd in read only
+  // $('#gender').find(`option[value=${data.gender}]`).prop('selected', true);
+  // $('#gender').formSelect();
+
+  // $('#grade').find(`option[value=${data.grade}]`).prop('selected', true);
+  // $('#grade').formSelect();
 
   $('#textarea_allergies').val(data.allergies);
   // add the focus to the alleriges so the test does not lay ontop of the lable
@@ -124,5 +129,30 @@ function renderAdultList(data) {
     adultRow.append(secondTd);
 
     $('#adult-list').append(adultRow);
+  }
+}
+
+// use jquery to create list for adults associated with student
+function renderTeamList(data) {
+
+  console.log("TEAM",data.Teams);
+
+  $('#team-list').empty();
+  for (let i = 0; i < data.Teams.length; i += 1) {
+    const team = data.Teams[i];
+    const teamRow = $('<tr>');
+    teamRow.addClass('team-row');
+    // adultRow.text($(this).attr("data-team-id"));
+    teamRow.attr('data-team-id', team.id);
+
+    const firstTd = $('<td>');
+    firstTd.text(team.team_name);
+    teamRow.append(firstTd);
+
+    const secondTd = $('<td>');
+    secondTd.text(team.sport);
+    teamRow.append(secondTd);
+
+    $('#team-list').append(teamRow);
   }
 }

@@ -1,4 +1,4 @@
-  <nav class="black lighten-1" role="navigation">
+<nav class="black lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Sunnyside Middle School</a>
       <ul id="nav-full" class="right hide-on-med-and-down">
         <li><a href="#">Admin</a></li>
@@ -10,112 +10,88 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-    
       <h1 class="header center black-text font-family times">School Teams</h1>
       <div class="row center">
         <h5 class="header col s12 light">Find Your Team, See What Equiptment Is Checked Out, or Take a Look At Your Upcoming Game & Practice Schedule</h5>
       </div>
       <div class="row">
-          <div class="col s12 m3">
+        <div class="col s12 m3">
         <a href="student" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
-        </div>
-      
-
-      
-        <div class="col s12 m3">
-      <a href="adult" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
       </div>
-    
-
-    
-        <div class="col s12 m3">
-      <a href="inventory" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+      <div class="col s12 m3">
+        <a href="adult" id="adt-btn" class="btn-large waves-effect waves-light yellow black-text">Adult</a>
       </div>
-    
-
-    
         <div class="col s12 m3">
-      <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
+        <a href="inventory" id="inv-btn" class="btn-large waves-effect waves-light yellow black-text">Inventory</a>
+      </div>
+        <div class="col s12 m3">
+        <a href="#" id="bet-btn" class="btn-large waves-effect waves-light yellow black-text">Make a Bet!</a>
       </div>
     </div>
-      <br><br>
-
-    </div>
+    <br><br>
   </div>
 
   <div class="container">
     <div class="section">
-
-        <table
-        class="striped"
-        class="centered">
-            <thead>
-              <tr>
-                <div class="row center">
-                    <h3>Team Name</h3>
-                </div>
-              </tr>
-            </thead>
-            <tr>
-              <td>Name</td>
-              <td>Sport</td>
-              <td>Gender</td>
-            </tr>
-            <tbody>
-                {{#each team}}
-                  {{>teams/team-block}}
-                {{/each}}
-            </tbody>  
-          </table>
-    
-
+      <table class="striped" class="centered">
+        <thead>
+          <tr>
+            <div class="row center">
+              <h3>Team Name</h3>
+            </div>
+          </tr>
+        </thead>
+        <tr>
+          <td>Name</td>
+          <td>Sport</td>
+          <td>Gender</td>
+        </tr>
+        <tbody>
+          {{#each team}}
+            {{>teams/team-block}}
+          {{/each}}
+        </tbody>  
+      </table>
     </div>
     <br>
   </div>
 
-
   <div class="container">
   <div class="row">
-  <div class="col s12 m3">
-    <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Team</a>
+    <div class="col s12 m3">
+      <a href="#" id="download-button" class="btn-large waves-effect waves-light yellow black-text">Add A Team</a>
+	    <a class="modal-trigger btn-large waves-effect waves-light yellow black-text" href="#modal1">Send A Message</a>
     </div>
-
-	  <a class="modal-trigger btn-large waves-effect waves-light yellow black-text" href="#modal1">Send A Message</a>
-	  </div>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-	  <div class="modal-content">
-		  <h4>Send A Message</h4>
-		  <div class="input-field col s12">
-		  <select id="phone">
-			  <option value="" disabled selected>Select Student</option>
-			  {{!-- <option id="name" value="+13039075882">My Number (303-907-5882)</option> --}}
-			  {{!-- <option value="2">Option 2</option> --}}
-			  {{!-- <option value="3">Option 3</option> --}}
-        {{#each student}}
-          {{>student/studCont-block}}
-        {{/each}}
-        
-		  </select>
-			  <div class="row">
-				  <form class="col s12">
-					  <div class="row">
-						  <div class="input-field col s12">
-							  <textarea id="textarea1" class="materialize-textarea"></textarea>
-							  <label for="textarea1">Type Message</label>
-						  </div>
-					  </div>
-				  </form>
-			  </div>
-		  </div>
-
-	  </div>
-	  <div class="modal-footer">
-		  <a href="#!" id="sendSms" class="modal-close waves-effect waves-green btn-flat ">Send</a>
-	  </div>
-  </div>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Send A Message</h4>
+        <div class="input-field col s12">
+        <select id="phone">
+          <option value="" disabled selected>Select Student</option>
+          {{#each student}}
+            {{>student/studCont-block}}
+          {{/each}}
+        </select>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <label for="textarea1">Type Message</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br><br>
+      <div class="modal-footer">
+        <a href="#!" id="sendSms" class="modal-close waves-effect waves-green btn-flat ">Send</a>
+      </div>
+    </div>
   </div>
 <br><br>
 
@@ -155,4 +131,4 @@
   <script src="./js/sms.js"></script>
   <script src="/js/index.js"></script>
   <script type="text/javascript" src="./js/caleandar.js"></script>
-  <script type="text/javascript" src="./js/demo.js"></script>   
+  <script type="text/javascript" src="./js/demo.js"></script>  
