@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
     });
   
     Calendar.associate = function (models) {
-      models.Student.belongsTo(models.Team, {
+      models.belongsTo(models.Team, {
         foreignKey: 'teamId'
       }); 
       
