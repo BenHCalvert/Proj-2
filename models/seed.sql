@@ -10,12 +10,12 @@ INSERT INTO adults (first_name,last_name,createdAt,updatedAt) VALUES ('Buster','
 INSERT INTO adults (first_name,last_name,createdAt,updatedAt) VALUES ('Charlie','Camel','2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO adults (first_name,last_name,createdAt,updatedAt) VALUES ('Dalia','Dingo','2020-12-18 01:00:00','2020-12-18 01:00:00');
 
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Emily','Elephant',6,'girl',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Frank','Frog',7,'boy','toast and toads','2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Gigi','Goat',6,'other',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Harry','Hermit-Crab',8,'boy',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Inga','Impala',8,'girl','lions, tiger, jackles, peanuts','2020-12-18 01:00:00','2020-12-18 01:00:00');
-INSERT INTO students (first_name,last_name,grade,gender,allergies,createdAt,updatedAt) VALUES ('Jacky','Jackle',8,'girl','carrots','2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Emily','Elephant',"+13039075882",6,'girl',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Frank','Frog',"+13032432460",7,'boy','toast and toads','2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Gigi','Goat',"+13032423460",6,'other',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Harry','Hermit-Crab',"+13032432460",8,'boy',null,'2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Inga','Impala',"+13032432460",8,'girl','lions, tiger, jackles, peanuts','2020-12-18 01:00:00','2020-12-18 01:00:00');
+INSERT INTO students (first_name,last_name,contact_number,grade,gender,allergies,createdAt,updatedAt) VALUES ('Jacky','Jackle',"+13032432460",8,'girl','carrots','2020-12-18 01:00:00','2020-12-18 01:00:00');
 
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',1,1,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO families (adult_type,adultId,studentId,createdAt,updatedAt) VALUES ('Parent',1,2,'2020-12-18 01:00:00','2020-12-18 01:00:00');

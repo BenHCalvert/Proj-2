@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS test_sunnyside_db;
-CREATE DATABASE test_sunnyside_db;
+DROP DATABASE IF EXISTS sunnyside_db;
+CREATE DATABASE sunnyside_db;
 
 CREATE TABLE student
 id INTEGER NOT NULL AUTO INCREMENT,
