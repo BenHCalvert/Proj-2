@@ -14,13 +14,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+
+    Calendar.belongsTo(Team);
   
-    Calendar.associate = function (models) {
-      models.belongsTo(models.Team, {
-        foreignKey: 'teamId'
-      }); 
+    // Calendar.associate = function (models) {
+    //   models.belongsTo(models.Team, {
+    //     foreignKey: 'teamId'
+    //   }); 
       
-    };
+    // };
   
   
     return Calendar;

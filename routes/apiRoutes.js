@@ -264,6 +264,50 @@ function exportAll(app) {
     });
   });
 
+  // ********************
+  // Calendar 'API'
+  // ********************
+  // get all events
+  app.get('/api/calendar', (req, res) => {
+    db.Calendar.findAll({}).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('get all evens');
+      }
+    });
+  });
+
+  // get one event
+  app.get('/api/calendar/:id', (req, res) => {
+    db.Calendar.findOne({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // post one event
+  app.post('/api/:calendar', (req, res) => {
+    db.Calendar.create({ where: { id: req.params.team } }).then((results) => {
+      res.json(results);
+      if (test) {
+        console.log('post new event to calendar');
+      }
+    });
+  });
+
+  // delete an event  id. May need to change id header to match
+  app.delete('/api/calendar/:id', (req, res) => {
+    db.Calendar.destroy({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
+  // update one event by team id
+  app.put('/api/calendar/:id', (req, res) => {
+    db.Calendar.put({ where: { id: req.params.id } }).then((results) => {
+      res.json(results);
+    });
+  });
+
   // Send SMS
 
   app.get('/api/sms', (req, res) => {
