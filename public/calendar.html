@@ -31,6 +31,8 @@
           <div class="col s12 m3">
             <a href="#" id="std-btn" class="btn-large waves-effect waves-light yellow black-text">Student</a>
         </div>
+
+        
       
 
       
@@ -55,7 +57,7 @@
     </div>
   </div>
 
-
+<!-- Page Body -->
   <div class="container">
     <div class="section">
         
@@ -68,11 +70,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr id="studentList">
-              </tr>
+              {{#each event}}
+                {{>event/event-block}}
+              {{/each}}
             </tbody>
           </table>
-        </div>
+        </div>   
+          
 
         
       
