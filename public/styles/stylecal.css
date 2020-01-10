@@ -401,5 +401,8 @@
    section.details-container {
         max-width: 25rem;
     }
-    
+
+body {
+  background: url("http://www.webdesigndev.com/wp-content/uploads/2015/02/Subtle-Light-Tile-Pattern-Vol5.jpg");
+}
   
