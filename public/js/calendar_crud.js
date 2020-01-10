@@ -5,13 +5,13 @@ $(document).ready(() => {
    
     
 //   Listener for creating a new event
-    $('.event-form').on('submit', (event) => {
+    $('#download-button').click( (event) => {
       event.preventDefault();
       console.log('button submit in calendar form', event);
   
       // get the value of the button so we know which one was selected
-      const button = $(document.activeElement).val();
-      console.log('button ', button);
+    //   const button = $(document.activeElement).val();
+    //   console.log('button ', button);
   
       // get the values from the form inputs
     //   Need to update this, where does it live in HTML?

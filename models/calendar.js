@@ -15,15 +15,16 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    Calendar.belongsTo(Team);
+    // Calendar.belongsTo(Team);
   
-    // Calendar.associate = function (models) {
-    //   models.belongsTo(models.Team, {
-    //     foreignKey: 'teamId'
-    //   }); 
+    Calendar.associate = function (models) {
+      models.Calendar.belongsTo(models.Team, {
+        foreignKey: 'teamId'
+      }); 
       
-    // };
+    }
   
   
     return Calendar;
+
   };
