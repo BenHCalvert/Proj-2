@@ -66,7 +66,7 @@ module.exports = function (app) {
   });
 
  
-  app.get('/calender', (req, res) => {
+  app.get('/calendar', (req, res) => {
     // res.sendFile(path.join(__dirname, "../public/student.html"));
     db.Calendar.findAll({}).then((data) => {
       console.log('calendar', { event: data });
