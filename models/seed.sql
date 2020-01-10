@@ -42,3 +42,6 @@ INSERT INTO rosters (teamId,studentId,createdAt,updatedAt) VALUES (3,2,'2020-12-
 INSERT INTO rosters (teamId,studentId,createdAt,updatedAt) VALUES (3,3,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO rosters (teamId,studentId,createdAt,updatedAt) VALUES (4,2,'2020-12-18 01:00:00','2020-12-18 01:00:00');
 INSERT INTO rosters (teamId,studentId,createdAt,updatedAt) VALUES (4,4,'2020-12-18 01:00:00','2020-12-18 01:00:00');
+
+INSERT INTO calendars (event_name, event_datetime, createdAt, updatedAt, teamId) VALUES ('Football Game', '2020-01-31 17:00:00', '2020-12-18 00:00:00','2020-12-18 00:00:00',1);
+INSERT INTO calendars (event_name, event_datetime, createdAt, updatedAt, teamId) VALUES ('Roller Derby Championships', '2020-02-01 17:00:00', '2020-12-18 00:00:00','2020-12-18 00:00:00',3);

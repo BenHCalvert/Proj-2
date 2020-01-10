@@ -65,6 +65,14 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, '../public/roster.html'));
   });
 
+ 
+  app.get('/calendar', (req, res) => {
+    // res.sendFile(path.join(__dirname, "../public/student.html"));
+    db.Calendar.findAll({}).then((data) => {
+      console.log('calendar', { event: data });
+      res.render('calendar', { event: data });
+    });
+  });
 
   // Load example page and pass in an example by id
   app.get('/example/:id', (req, res) => {
