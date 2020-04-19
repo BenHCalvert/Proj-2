@@ -5,6 +5,7 @@ require('dotenv').config();
 // const exec = require('child_process').exec;
 const express = require('express');
 const exphbs = require('express-handlebars');
+var compression = require('compression')
 
 const db = require('./models');
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 
 // Middleware
+app.use(compression())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
